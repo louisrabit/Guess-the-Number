@@ -44,8 +44,23 @@ if(!guess){
     document.querySelector(".highscore").textContent = highScore;
  }
 
-    //when  huess is to high
-}else if ( guess > secretNumber){
+  // when guess is different 
+}else if (guess !== secretNumber){
+    if (score > 1){
+        document.querySelector(".message").textContent = guess > secretNumber ? "To high ⭕" : "To low 👁‍🗨";
+        score-- ;
+        document.querySelector(".score").textContent = score;
+
+    }else{
+        document.querySelector(".message").textContent = "💥💥Lost the Game 💥💥";
+        document.querySelector(".score").textContent = 0;
+    
+    }
+} 
+
+  //when  huess is to high
+
+/* else if ( guess > secretNumber){
     if (score > 1){
         document.querySelector(".message").textContent = "To high ⭕";
         score-- ;
@@ -71,7 +86,7 @@ if(!guess){
     }
 }
 });
-
+ */
 
 
 document.querySelector(".again").addEventListener("click", function(){
@@ -81,4 +96,4 @@ document.querySelector(".again").addEventListener("click", function(){
     document.querySelector(".score").textContent = score;
     document.querySelector(".number").textContent = "?";
     document.querySelector(".guess").value = "";
-  }  )
+}) } )
